@@ -9,7 +9,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		SMA sma = new SMA(new Environment(10, 10, -1, -1, 10),new ArrayList<Agent>());
-		
+		sma.addAgent();
+		sma.runOnce();
 	}
 
 }

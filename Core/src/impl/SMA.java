@@ -17,7 +17,7 @@ public class SMA {
 		this.agents = agents;
 	}
 	
-	void addAgent(){
+	public void addAgent(){
 		Random rand = new Random();
 		int x;
 		int y;
