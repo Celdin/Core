@@ -1,25 +1,25 @@
-package impl;
+package impl.Wator;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-import abs.Agent;
+import abs.EnvironnementAbs;
 
-public class Poisson extends Agent{
+public class Poisson extends AgentSwatorAbs{
 
 	public Poisson(String name,int x, int y) {
 		super(name,Type.POISSON,x, y);
 	}
 
 	@Override
-	public Environment run(Environment univert) {
+	public EnvironmentWator run(EnvironmentWator univert) {
 		Random random = new Random();
-		ArrayList<Agent> voisins = univert.voisins(pos_x, pos_y);
+		ArrayList<AgentSwatorAbs> voisins = univert.voisins(pos_x, pos_y);
 		boolean depalcementPossible = voisins.contains(null);
 		cycleReproduction++;
 		if(!vivant)
 			return univert;
-		for(Agent agent : voisins){
+		for(AgentSwatorAbs agent : voisins){
 			if(agent == null);
 			else if(agent.getType() == Type.REQUIN && depalcementPossible){
 				return move(univert);
@@ -31,9 +31,11 @@ public class Poisson extends Agent{
 		if (cycleReproduction >= univert.tempsReproductionPoisson && depalcementPossible){
 			int x = pos_x,y = pos_y;
 			univert = move(univert);
-			univert.grille[x][y] = new Poisson(String.valueOf(SMA.agents.size()), x, y);
+			univert.grille[x][y] = new Poisson(String.valueOf(SMAWator.size()), x, y);
 			cycleReproduction=-1;
 		}
 		return univert;
 	}
+
+	
 }

@@ -1,17 +1,19 @@
-import java.io.IOException;
+
+import impl.part.AgentParticule;
+import impl.part.EnvironmentParticule;
+import impl.part.SMAParticule;
+
 import java.util.ArrayList;
 
-import abs.Agent;
-import impl.Environment;
-import impl.SMA;
+
 
 
 public class Main {
 
-	public static void main(String[] args) throws InterruptedException, IOException {
-		SMA sma = new SMA(new Environment(200,2,5,10,3, 31, 10, 2, 10,true),new ArrayList<Agent>());
+	public static void main(String[] args) throws InterruptedException {
+		SMAParticule sma = new SMAParticule(new EnvironmentParticule(3, 5, -1, -1, 500),new ArrayList<AgentParticule>());
 		sma.addAgent();
-		sma.run(9999);
+		sma.run(2000);
 	}
 
 }

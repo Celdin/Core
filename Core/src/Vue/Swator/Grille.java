@@ -1,4 +1,4 @@
-package Vue;
+package Vue.Swator;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -16,39 +16,27 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
-import abs.Agent.Type;
-import impl.Environment;
+import abs.GrilleAbs;
+import impl.Wator.AgentSwatorAbs;
+import impl.Wator.EnvironmentWator;
+import impl.Wator.AgentSwatorAbs.Type;
 
-public class Grille extends JFrame {
-	Environment env;
-	JLabel[][] agent;
-	JPanel pan;
-	public Grille (Environment env){
-		this.env = env;
-		pan = new JPanel();
-		pan.setLayout(new GridLayout (env.taille_envi,env.taille_envi));
-		this.setPreferredSize(new Dimension(env.taille_case*env.taille_envi, env.taille_case*env.taille_envi));
-		this.setLocationRelativeTo(null);
+public class Grille extends GrilleAbs {
+	
+	public Grille (EnvironmentWator env){
+		super( env);
 		Border blackline = BorderFactory.createLineBorder(Color.black,1); 
 
-		this.setLocation(100, 100);
-		agent = new JLabel [env.taille_envi][env.taille_envi];
 		for(int i= 0 ; i < env.taille_envi;i++){
 			for(int j= 0 ; j < env.taille_envi;j++){
-				agent[i][j]= new JLabel();
-				agent[i][j].setPreferredSize(new Dimension(env.taille_case,env.taille_case));
+			
 				   agent[i][j].setBorder(blackline);
-				   agent[i][j].setVisible(true);
-				   
-				   pan.add(agent[i][j]);
+				  
 			}
 
 		}
 		pan.setBorder(blackline);
-		this.add(pan);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.pack();
-		this.setVisible(true);
+		
 	}
 	
 	public void grille(){
@@ -60,11 +48,11 @@ public class Grille extends JFrame {
 				agent[x][y].setBackground(Color.BLUE);;
 				  
 			   if(env.grille[x][y]!=null){
-				   if(env.grille[x][y].getType() == abs.Agent.Type.POISSON){
+				   if(((AgentSwatorAbs) env.grille[x][y]).getType() == impl.Wator.AgentSwatorAbs.Type.POISSON){
 					   agent[x][y].setIcon(poisson);
 					   
 				   }
-				   if(env.grille[x][y].getType() == abs.Agent.Type.REQUIN){
+				   if(((AgentSwatorAbs) env.grille[x][y]).getType() == impl.Wator.AgentSwatorAbs.Type.REQUIN){
 					   agent[x][y].setIcon(requin);
 				   }
 			   }

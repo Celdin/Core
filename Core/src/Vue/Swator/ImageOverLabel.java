@@ -1,4 +1,4 @@
-package Vue;
+package Vue.Swator;
 
 import java.awt.Color;
 import java.awt.Container;

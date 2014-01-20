@@ -1,21 +1,19 @@
-package abs;
+package impl.Wator;
 
 import java.awt.Point;
 import java.util.Random;
 
-import impl.Environment;
+import abs.AgentAbs;
 
-public abstract class Agent {
+public abstract class AgentSwatorAbs extends AgentAbs {
 
 	public enum Type {REQUIN,POISSON,VIDE};
-	protected String name;
 	protected Type type;
-	protected Integer pos_x;
-	protected Integer pos_y;
 	protected int cycleReproduction;
 	public boolean vivant = true;
 	
-	public Agent(String nom,Type type, int x,int y){
+	public AgentSwatorAbs(String nom,Type type, int x,int y){
+		super(nom,x,y);
 		this.name = nom;
 		this.type = type;
 		pos_x=x;
@@ -30,14 +28,13 @@ public abstract class Agent {
 		return new Point(pos_x, pos_y);
 	}
 	
-	public abstract Environment run(Environment univert);
 	
 	@Override
 	public String toString() {
 		return name + ":["+pos_x+","+pos_y+"]";
 	}
 
-	protected boolean placeLibre(Environment environment){
+	protected boolean placeLibre(EnvironmentWator environment){
 		for (int y = 0; y < environment.taille_envi; y++) {
 			for (int x = 0; x < environment.taille_envi; x++) {
 				if(environment.grille[x][y] == null)
@@ -48,7 +45,7 @@ public abstract class Agent {
 		return false;
 	}
 	
-	protected Environment move(Environment univert) {
+	protected EnvironmentWator move(EnvironmentWator univert) {
 		Random rand = new Random();
 		int choix;
 		while (true){
@@ -235,8 +232,11 @@ public abstract class Agent {
 	
 	@Override
 	public boolean equals(Object obj) {
-		Agent agent = (Agent)obj;
+		AgentSwatorAbs agent = (AgentSwatorAbs)obj;
 		
 		return this.name.equals(agent.name);
+		
 	}
+	
+	public abstract EnvironmentWator run(EnvironmentWator univert);
 }
