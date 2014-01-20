@@ -1,15 +1,13 @@
 package impl;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
+import Vue.Grille;
 import abs.Agent;
 import abs.Agent.Type;
 
@@ -18,11 +16,13 @@ public class SMA {
 
 	private Environment environment;
 	public static ArrayList<Agent> agents;
-	
+	private Grille vue;
 	public SMA(Environment environment, ArrayList<Agent> agents) {
 		super();
 		this.environment = environment;
 		SMA.agents = agents;
+		vue = new Grille(environment); 
+
 	}
 	
 	public void addAgent(){
@@ -49,25 +49,16 @@ public class SMA {
 		}
 	}
 	
-	public void runOnce(){
+	public void runOnce() throws InterruptedException{
 		Collections.shuffle(agents);
 
 		for(Agent agent : agents){
 			environment = agent.run(environment);
+
 		}
-		for (int y = 0; y < environment.taille_envi; y++) {
-			System.out.print("|");
-			for (int x = 0; x < environment.taille_envi; x++) {
-				if(environment.grille[x][y]!=null){
-					if(environment.grille[x][y].getType() == Type.POISSON)
-						System.out.print("P|");
-					else
-						System.out.print("R|");
-				}else
-					System.out.print("~|");
-			}
-			System.out.println();
-		}
+		vue.grille();
+
+		Thread.sleep(environment.wait_time);
 		agents = new ArrayList<Agent>();
 		for (int y = 0; y < environment.taille_envi; y++) {
 			for (int x = 0; x < environment.taille_envi; x++) {

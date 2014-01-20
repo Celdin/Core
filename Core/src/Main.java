@@ -9,9 +9,9 @@ import impl.SMA;
 public class Main {
 
 	public static void main(String[] args) throws InterruptedException, IOException {
-		SMA sma = new SMA(new Environment(200,2,50,10,3, 31, -1, -1, 5,true),new ArrayList<Agent>());
+		SMA sma = new SMA(new Environment(200,2,5,10,3, 31, 10, 2, 10,true),new ArrayList<Agent>());
 		sma.addAgent();
-		sma.run(2000);
+		sma.run(9999);
 	}
 
 }
