@@ -9,7 +9,7 @@ public abstract class SMAAbs {
 	public SMAAbs(EnvironnementAbs environment, ArrayList<? extends AgentAbs> agents) {
 		super();
 		this.environment = environment;
-		this.agents = agents;
+		SMAAbs.agents = agents;
 	}
 	public static int size(){
 		 return agents.size();

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 
 
-public class Main {
+public class MainParticules {
 
 	public static void main(String[] args) throws InterruptedException {
 		SMAParticule sma = new SMAParticule(new EnvironmentParticule(3, 5, -1, -1, 500),new ArrayList<AgentParticule>());
