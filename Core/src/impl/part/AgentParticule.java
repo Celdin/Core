@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.util.Random;
 
 import abs.AgentAbs;
-import impl.part.*;
 
 public abstract class AgentParticule extends AgentAbs {
 	

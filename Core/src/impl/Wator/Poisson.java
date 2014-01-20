@@ -1,9 +1,6 @@
 package impl.Wator;
 
 import java.util.ArrayList;
-import java.util.Random;
-
-import abs.EnvironnementAbs;
 
 public class Poisson extends AgentSwatorAbs{
 
@@ -13,7 +10,6 @@ public class Poisson extends AgentSwatorAbs{
 
 	@Override
 	public EnvironmentWator run(EnvironmentWator univert) {
-		Random random = new Random();
 		ArrayList<AgentSwatorAbs> voisins = univert.voisins(pos_x, pos_y);
 		boolean depalcementPossible = voisins.contains(null);
 		cycleReproduction++;

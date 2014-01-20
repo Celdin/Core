@@ -1,7 +1,6 @@
 package impl.part;
 
 import abs.EnvironnementAbs;
-import impl.part.*;
 
 public class EnvironmentParticule extends EnvironnementAbs{
 	
@@ -19,7 +18,6 @@ public class EnvironmentParticule extends EnvironnementAbs{
 			int taille_vus, int d) {
 		super(taille_envi, taille_case,taille_vus,d);
 		this.nb_agent = nb_agent;
-		this.grille= new AgentParticule [taille_envi][taille_envi];
 		
 	}
 

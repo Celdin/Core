@@ -1,8 +1,5 @@
 package impl.part;
 
-import abs.EnvironnementAbs;
-import impl.part.*;
-
 public class Particule extends AgentParticule{
 
 	/**

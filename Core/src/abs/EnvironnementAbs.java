@@ -1,6 +1,5 @@
 package abs;
 
-import impl.Wator.AgentSwatorAbs;
 
 
 public abstract class EnvironnementAbs {

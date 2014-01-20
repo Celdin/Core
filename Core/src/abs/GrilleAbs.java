@@ -2,17 +2,17 @@ package abs;
 
 import impl.Wator.EnvironmentWator;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-
-import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
 
 public abstract class GrilleAbs extends JFrame{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8313521493650105158L;
 	protected EnvironnementAbs env;
 	protected JLabel[][] agent;
 	protected JPanel pan;

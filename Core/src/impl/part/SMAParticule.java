@@ -2,11 +2,7 @@ package impl.part;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
-
-import abs.AgentAbs;
-import abs.EnvironnementAbs;
 import abs.SMAAbs;
-import impl.part.*;
 
 
 public class SMAParticule extends SMAAbs{

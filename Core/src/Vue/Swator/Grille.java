@@ -1,28 +1,23 @@
 package Vue.Swator;
 
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.GridLayout;
-import java.awt.Image;
 import java.awt.Toolkit;
-import java.awt.image.BufferedImage;
-import java.net.URL;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.border.Border;
 
 import abs.GrilleAbs;
 import impl.Wator.AgentSwatorAbs;
 import impl.Wator.EnvironmentWator;
-import impl.Wator.AgentSwatorAbs.Type;
 
 public class Grille extends GrilleAbs {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8729021838428799085L;
+
 	public Grille (EnvironmentWator env){
 		super( env);
 		Border blackline = BorderFactory.createLineBorder(Color.black,1); 

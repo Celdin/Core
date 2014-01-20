@@ -1,8 +1,5 @@
 package abs;
 
-import impl.Wator.AgentSwatorAbs;
-import impl.Wator.EnvironmentWator;
-
 import java.util.ArrayList;
 
 public abstract class SMAAbs {

@@ -3,7 +3,6 @@ package impl.Wator;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 public class Requin extends AgentSwatorAbs{
 
@@ -18,7 +17,6 @@ public class Requin extends AgentSwatorAbs{
 
 	@Override
 	public EnvironmentWator run(EnvironmentWator univert) {
-		Random random = new Random();
 		List <AgentSwatorAbs> voisins = univert.voisins(pos_x, pos_y);
 		boolean depalcementPossible = voisins.contains(null);
 		List <AgentSwatorAbs> peutManger = new ArrayList<AgentSwatorAbs>();
