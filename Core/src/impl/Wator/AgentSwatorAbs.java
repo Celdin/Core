@@ -48,7 +48,7 @@ public abstract class AgentSwatorAbs extends AgentAbs {
 	protected EnvironmentWator move(EnvironmentWator univert) {
 		Random rand = new Random();
 		int choix;
-		while (true){
+		while (true && univert.voisins(pos_x, pos_y).contains(null)){
 			choix = rand.nextInt(8);
 			if(univert.torique){
 				switch (choix) {
@@ -225,6 +225,7 @@ public abstract class AgentSwatorAbs extends AgentAbs {
 				}
 			}
 		}
+		return univert;
 	}
 	public void estManger() {
 		vivant  = false;

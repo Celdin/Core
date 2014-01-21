@@ -2,14 +2,19 @@ package impl.part;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
+
+import Vue.Particule.Grille;
 import abs.SMAAbs;
 
 
 public class SMAParticule extends SMAAbs{
 
-	
+
+	private Grille vue;
 	public SMAParticule(EnvironmentParticule environment, ArrayList<AgentParticule> agents) {
 		super(environment,agents);
+		
+		vue = new Grille(environment);
 	}
 	
 	public void addAgent(){
@@ -44,18 +49,8 @@ public class SMAParticule extends SMAAbs{
 			//allez les mec faites qq chose!
 			environment = ((AgentParticule) agent).run((EnvironmentParticule) environment);
 		}
-		//ici on afiche car sans IG on vois rien...
-		for (int y = 0; y < environment.taille_envi; y++) {
-			System.out.print("|");
-			for (int x = 0; x < environment.taille_envi; x++) {
-				if(environment.grille[x][y]!=null){
-					System.out.print(environment.grille[x][y].name + "|");
-				}else
-					System.out.print(" |");
-			}
-			System.out.println();
-		}
-		System.out.println();
+		
+		vue.grille();
 	}
 	
 	public void run (int n) throws InterruptedException{

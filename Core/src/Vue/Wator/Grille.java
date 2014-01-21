@@ -1,4 +1,4 @@
-package Vue.Swator;
+package Vue.Wator;
 
 import java.awt.Color;
 import java.awt.Toolkit;
@@ -40,7 +40,7 @@ public class Grille extends GrilleAbs {
 		
 		for(int y = 0; y<env.taille_envi;y++){
 			for(int x = 0; x<env.taille_envi;x++){
-				agent[x][y].setBackground(Color.BLUE);;
+				agent[x][y].setBackground(Color.BLUE);
 				  
 			   if(env.grille[x][y]!=null){
 				   if(((AgentSwatorAbs) env.grille[x][y]).getType() == impl.Wator.AgentSwatorAbs.Type.POISSON){
@@ -54,12 +54,7 @@ public class Grille extends GrilleAbs {
 			   else{
 				   agent[x][y].setIcon(null);
 			   }
-			   
-				   //img.setBounds(0, 0, image.getIconHeight(), image.getIconWidth());
-			   
 			}
 		}
-		
 	}
-
 }

@@ -32,6 +32,7 @@ public class EnvironmentParticule extends EnvironnementAbs{
 	public EnvironmentParticule(int nb_agent, int taille_envi, int taille_case,
 			int taille_vus, int wait_time, Boolean torique) {
 		super(taille_envi, taille_case,taille_vus,wait_time,torique);
+		this.nb_agent = nb_agent;
 		
 	}
 }

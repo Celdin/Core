@@ -16,7 +16,7 @@ public abstract class GrilleAbs extends JFrame{
 	protected EnvironnementAbs env;
 	protected JLabel[][] agent;
 	protected JPanel pan;
-	public GrilleAbs (EnvironmentWator env){
+	public GrilleAbs (EnvironnementAbs env){
 		this.env = env;
 		pan = new JPanel();
 		pan.setLayout(new GridLayout (env.taille_envi,env.taille_envi));

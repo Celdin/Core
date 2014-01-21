@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.Random;
 
 import abs.SMAAbs;
-import Vue.Swator.Grille;
+import Vue.Wator.Grille;
 
 
 public class SMAWator  extends SMAAbs{
