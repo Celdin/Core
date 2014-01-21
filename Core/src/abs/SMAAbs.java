@@ -15,5 +15,6 @@ public abstract class SMAAbs {
 		 return agents.size();
 	}
 	public abstract void addAgent();
+	public abstract void run(int n) throws InterruptedException;
 	public abstract void runOnce()throws InterruptedException;
 }

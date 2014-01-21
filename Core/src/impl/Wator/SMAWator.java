@@ -68,25 +68,29 @@ public class SMAWator  extends SMAAbs{
 		}
 	}
 	
-	public void run (int n) throws InterruptedException, IOException{
+	public void run (int n) throws InterruptedException{
 		File f = new File("Stats.csv");
-		BufferedWriter bw = new BufferedWriter(new FileWriter(f));
-		bw.write("Requin;Poisson\n");
-		for(int i = 0; i<n;i++){
-			runOnce();
-			int requin=0;
-			int poisson=0;
-			for(AgentSwatorAbs agent : ((ArrayList<AgentSwatorAbs>) agents)){
-				if(agent.getType() == Type.REQUIN)
-					requin++;
-				else
-					poisson++;
+		BufferedWriter bw;
+		try {
+			bw = new BufferedWriter(new FileWriter(f));
+			bw.write("Requin;Poisson\n");
+			for(int i = 0; i<n;i++){
+				runOnce();
+				int requin=0;
+				int poisson=0;
+				for(AgentSwatorAbs agent : ((ArrayList<AgentSwatorAbs>) agents)){
+					if(agent.getType() == Type.REQUIN)
+						requin++;
+					else
+						poisson++;
+				}
+				bw.write(requin + ";" + poisson + "\n");
+				Thread.sleep(environment.wait_time);
 			}
-			bw.write(requin + ";" + poisson + "\n");
-			System.out.println("Requin: " + requin + " Poisson: " + poisson );
-			System.out.println();
-			Thread.sleep(environment.wait_time);
+			bw.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		bw.close();
 	}
 }
