@@ -1,9 +1,10 @@
 package impl.part;
-import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 
 import Vue.Particule.Grille;
+import abs.AgentAbs;
 import abs.SMAAbs;
 
 
@@ -11,7 +12,7 @@ public class SMAParticule extends SMAAbs{
 
 
 	private Grille vue;
-	public SMAParticule(EnvironmentParticule environment, ArrayList<AgentParticule> agents) {
+	public SMAParticule(EnvironmentParticule environment, List<AgentAbs> agents) {
 		super(environment,agents);
 		
 		vue = new Grille(environment);
@@ -38,16 +39,16 @@ public class SMAParticule extends SMAAbs{
 			
 			AgentParticule agent = new Particule(i.toString(),x, y,mx,my);
 			environment.grille[x][y] = agent;
-			((ArrayList<AgentParticule>)agents).add(agent);
+			agents.add(agent);
 		}
 	}
 	
 	public void runOnce(){
 		Collections.shuffle(agents);
 		
-		for(AgentParticule agent : ((ArrayList<AgentParticule>)agents)){
+		for(AgentAbs agent : agents){
 			//allez les mec faites qq chose!
-			environment = ((AgentParticule) agent).run((EnvironmentParticule) environment);
+			environment = agent.run(environment);
 		}
 		
 		vue.grille();

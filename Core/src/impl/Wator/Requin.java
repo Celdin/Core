@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import abs.EnvironnementAbs;
+
 public class Requin extends AgentSwatorAbs{
 
 	int aPasMangerDepuis;
@@ -16,7 +18,8 @@ public class Requin extends AgentSwatorAbs{
 	
 
 	@Override
-	public EnvironmentWator run(EnvironmentWator univert) {
+	public EnvironnementAbs run(EnvironnementAbs env) {
+		EnvironmentWator univert = (EnvironmentWator) env;
 		List <AgentSwatorAbs> voisins = univert.voisins(pos_x, pos_y);
 		boolean depalcementPossible = voisins.contains(null);
 		List <AgentSwatorAbs> peutManger = new ArrayList<AgentSwatorAbs>();

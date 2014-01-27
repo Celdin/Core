@@ -1,5 +1,8 @@
 package Vue.Wator;
 
+import impl.Wator.AgentSwatorAbs;
+import impl.Wator.EnvironmentWator;
+
 import java.awt.Color;
 import java.awt.Toolkit;
 
@@ -8,8 +11,6 @@ import javax.swing.ImageIcon;
 import javax.swing.border.Border;
 
 import abs.GrilleAbs;
-import impl.Wator.AgentSwatorAbs;
-import impl.Wator.EnvironmentWator;
 
 public class Grille extends GrilleAbs {
 	

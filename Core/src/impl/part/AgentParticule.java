@@ -16,10 +16,4 @@ public abstract class AgentParticule extends AgentAbs {
 		this.color = new Color(rand.nextInt(255),rand.nextInt(255),rand.nextInt(255));
 	}
 
-	/**
-	 * Donne la parole à cette agent pour qu'il fasse qq chose
-	 * @param univert l'enviroenement
-	 * @return l'environement après que l'agent ai fait qq chose
-	 */
-	public abstract EnvironmentParticule run(EnvironmentParticule univert);
 }

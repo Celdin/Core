@@ -1,5 +1,7 @@
 package impl.part;
 
+import abs.EnvironnementAbs;
+
 public class Particule extends AgentParticule{
 
 	/**
@@ -19,9 +21,9 @@ public class Particule extends AgentParticule{
 	 * @see abs.Agent#run(impl.Environment)
 	 */
 	@Override
-	public EnvironmentParticule run(EnvironmentParticule univert) {
+	public EnvironnementAbs run(EnvironnementAbs env) {
 		//la seule chose que sait faire une particule: Bouger !
-		return move(univert);
+		return move((EnvironmentParticule) env);
 	}
 	
 	/**

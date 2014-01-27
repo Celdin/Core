@@ -1,5 +1,4 @@
 package impl.Wator;
-import impl.Wator.AgentSwatorAbs.Type;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -7,79 +6,80 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 
-import abs.SMAAbs;
 import Vue.Wator.Grille;
+import abs.AgentAbs;
+import abs.SMAAbs;
 
+public class SMAWator extends SMAAbs {
 
-public class SMAWator  extends SMAAbs{
-
-	
 	private Grille vue;
-	public SMAWator(EnvironmentWator env, ArrayList<AgentSwatorAbs> agents) {
+
+	public SMAWator(EnvironmentWator env, List<AgentAbs> agents) {
 		super(env, agents);
-		
-		vue = new Grille(env); 
+
+		vue = new Grille(env);
 
 	}
-	
-	public void addAgent(){
+
+	public void addAgent() {
 		Random rand = new Random();
 		int x;
 		int y;
-		for(Integer i = 0;i < ((EnvironmentWator)environment).nb_agent_poisson;i++){
-			do{
-			x = rand.nextInt(environment.taille_envi);
-			y = rand.nextInt(environment.taille_envi);
-			}while(((EnvironmentWator)environment).grille[x][y] != null);
-			Poisson agent = new Poisson(i.toString(),x, y);
+		for (Integer i = 0; i < ((EnvironmentWator) environment).nb_agent_poisson; i++) {
+			do {
+				x = rand.nextInt(environment.taille_envi);
+				y = rand.nextInt(environment.taille_envi);
+			} while (((EnvironmentWator) environment).grille[x][y] != null);
+			Poisson agent = new Poisson(i.toString(), x, y);
 			environment.grille[x][y] = agent;
-			((ArrayList<AgentSwatorAbs>) agents).add((AgentSwatorAbs) environment.grille[x][y]);
+			agents.add(environment.grille[x][y]);
 		}
-		for(Integer i = 0;i < ((EnvironmentWator)environment).nb_agent_requin;i++){
-			do{
-			x = rand.nextInt(environment.taille_envi);
-			y = rand.nextInt(environment.taille_envi);
-			}while(environment.grille[x][y] != null);
-			Requin agent = new Requin(String.valueOf(agents.size()),x, y);
+		for (Integer i = 0; i < ((EnvironmentWator) environment).nb_agent_requin; i++) {
+			do {
+				x = rand.nextInt(environment.taille_envi);
+				y = rand.nextInt(environment.taille_envi);
+			} while (environment.grille[x][y] != null);
+			Requin agent = new Requin(String.valueOf(agents.size()), x, y);
 			environment.grille[x][y] = agent;
-			((ArrayList<AgentSwatorAbs>) agents).add((AgentSwatorAbs) environment.grille[x][y]);
+			(agents).add((AgentSwatorAbs) environment.grille[x][y]);
 		}
 	}
-	
-	public void runOnce() throws InterruptedException{
+
+	public void runOnce() throws InterruptedException {
 		Collections.shuffle(agents);
 
-		for(AgentSwatorAbs agent : ((ArrayList<AgentSwatorAbs>) agents)){
-			environment = (EnvironmentWator) agent.run((EnvironmentWator) environment);
+		for (AgentAbs agent : agents) {
+			environment = agent.run(environment);
 
 		}
 		vue.grille();
 
 		Thread.sleep(environment.wait_time);
-		agents = new ArrayList<AgentSwatorAbs>();
+		agents = new ArrayList<AgentAbs>();
 		for (int y = 0; y < environment.taille_envi; y++) {
 			for (int x = 0; x < environment.taille_envi; x++) {
-				if(environment.grille[x][y]!=null){
-					((ArrayList<AgentSwatorAbs>) agents).add((AgentSwatorAbs) environment.grille[x][y]);
+				if (environment.grille[x][y] != null) {
+					agents.add(environment.grille[x][y]);
 				}
 			}
 		}
 	}
-	
-	public void run (int n) throws InterruptedException{
+
+	public void run(int n) throws InterruptedException {
 		File f = new File("Stats.csv");
 		BufferedWriter bw;
 		try {
 			bw = new BufferedWriter(new FileWriter(f));
 			bw.write("Requin;Poisson\n");
-			for(int i = 0; i<n;i++){
+			for (int i = 0; i < n; i++) {
 				runOnce();
-				int requin=0;
-				int poisson=0;
-				for(AgentSwatorAbs agent : ((ArrayList<AgentSwatorAbs>) agents)){
-					if(agent.getType() == Type.REQUIN)
+				int requin = 0;
+				int poisson = 0;
+				for (AgentAbs agent : agents) {
+					if (agent instanceof Requin)
 						requin++;
 					else
 						poisson++;

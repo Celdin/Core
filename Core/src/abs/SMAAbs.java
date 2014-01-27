@@ -1,12 +1,12 @@
 package abs;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public abstract class SMAAbs {
 	protected EnvironnementAbs environment;
-	protected static ArrayList<? extends AgentAbs> agents;
+	protected static List<AgentAbs> agents;
 	
-	public SMAAbs(EnvironnementAbs environment, ArrayList<? extends AgentAbs> agents) {
+	public SMAAbs(EnvironnementAbs environment, List<AgentAbs> agents) {
 		super();
 		this.environment = environment;
 		SMAAbs.agents = agents;

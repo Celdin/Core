@@ -238,6 +238,4 @@ public abstract class AgentSwatorAbs extends AgentAbs {
 		return this.name.equals(agent.name);
 		
 	}
-	
-	public abstract EnvironmentWator run(EnvironmentWator univert);
 }

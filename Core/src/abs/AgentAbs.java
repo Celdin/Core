@@ -1,6 +1,7 @@
 package abs;
 
 
+
 public abstract class AgentAbs {
 	public String name;
 	
@@ -12,6 +13,11 @@ public abstract class AgentAbs {
 		pos_x=x;
 		pos_y=y;
 	}
-	
-	
+
+	/**
+	 * Donne la parole à cette agent pour qu'il fasse qq chose
+	 * @param env l'enviroenement
+	 * @return l'environement après que l'agent ai fait qq chose
+	 */
+	public abstract EnvironnementAbs run(EnvironnementAbs env);
 }

@@ -1,9 +1,8 @@
 package abs;
 
-import impl.Wator.EnvironmentWator;
-
 import java.awt.Dimension;
 import java.awt.GridLayout;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
