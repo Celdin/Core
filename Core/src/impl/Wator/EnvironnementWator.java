@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import abs.EnvironnementAbs;
 
-public class EnvironmentWator extends EnvironnementAbs{
+public class EnvironnementWator extends EnvironnementAbs{
 
 	public int nb_agent_poisson;
 	public int nb_agent_requin;
@@ -14,7 +14,7 @@ public class EnvironmentWator extends EnvironnementAbs{
 	public int tempsReproductionPoisson;
 	
 
-	public EnvironmentWator(int nb_agent_poisson,int tempsReproductionPoisson, int nb_agent_requin,int tempsReproductionRequin,int maxTempsRequinSansManger,
+	public EnvironnementWator(int nb_agent_poisson,int tempsReproductionPoisson, int nb_agent_requin,int tempsReproductionRequin,int maxTempsRequinSansManger,
 			int taille_envi, int taille_case, int taille_vus, int wait_time) {
 		super(taille_envi,taille_case,taille_vus,wait_time);
 		this.nb_agent_poisson = nb_agent_poisson;
@@ -25,7 +25,7 @@ public class EnvironmentWator extends EnvironnementAbs{
 		
 	}
 	
-	public EnvironmentWator(int nb_agent_poisson, int tempsReproductionPoisson,
+	public EnvironnementWator(int nb_agent_poisson, int tempsReproductionPoisson,
 			int nb_agent_requin, int tempsReproductionRequin,
 			int maxTempsRequinSansManger, int taille_envi, int taille_case,
 			int taille_vus, int wait_time, Boolean torique) {

@@ -19,7 +19,7 @@ public class Requin extends AgentSwatorAbs{
 
 	@Override
 	public EnvironnementAbs run(EnvironnementAbs env) {
-		EnvironmentWator univert = (EnvironmentWator) env;
+		EnvironnementWator univert = (EnvironnementWator) env;
 		List <AgentSwatorAbs> voisins = univert.voisins(pos_x, pos_y);
 		boolean depalcementPossible = voisins.contains(null);
 		List <AgentSwatorAbs> peutManger = new ArrayList<AgentSwatorAbs>();

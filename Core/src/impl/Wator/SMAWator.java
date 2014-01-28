@@ -17,7 +17,7 @@ public class SMAWator extends SMAAbs {
 
 	private Grille vue;
 
-	public SMAWator(EnvironmentWator env, List<AgentAbs> agents) {
+	public SMAWator(EnvironnementWator env, List<AgentAbs> agents) {
 		super(env, agents);
 
 		vue = new Grille(env);
@@ -28,16 +28,16 @@ public class SMAWator extends SMAAbs {
 		Random rand = new Random();
 		int x;
 		int y;
-		for (Integer i = 0; i < ((EnvironmentWator) environment).nb_agent_poisson; i++) {
+		for (Integer i = 0; i < ((EnvironnementWator) environment).nb_agent_poisson; i++) {
 			do {
 				x = rand.nextInt(environment.taille_envi);
 				y = rand.nextInt(environment.taille_envi);
-			} while (((EnvironmentWator) environment).grille[x][y] != null);
+			} while (((EnvironnementWator) environment).grille[x][y] != null);
 			Poisson agent = new Poisson(i.toString(), x, y);
 			environment.grille[x][y] = agent;
 			agents.add(environment.grille[x][y]);
 		}
-		for (Integer i = 0; i < ((EnvironmentWator) environment).nb_agent_requin; i++) {
+		for (Integer i = 0; i < ((EnvironnementWator) environment).nb_agent_requin; i++) {
 			do {
 				x = rand.nextInt(environment.taille_envi);
 				y = rand.nextInt(environment.taille_envi);

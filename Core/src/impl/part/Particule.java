@@ -23,7 +23,7 @@ public class Particule extends AgentParticule{
 	@Override
 	public EnvironnementAbs run(EnvironnementAbs env) {
 		//la seule chose que sait faire une particule: Bouger !
-		return move((EnvironmentParticule) env);
+		return move((EnvironnementParticule) env);
 	}
 	
 	/**
@@ -31,7 +31,7 @@ public class Particule extends AgentParticule{
 	 * @param univert l'environement
 	 * @return l'environement après qu'il ai bougé
 	 */
-	public EnvironmentParticule move(EnvironmentParticule univert){
+	public EnvironnementParticule move(EnvironnementParticule univert){
 		//si la grille n'est pas torique on tape les bords !
 		if(!univert.torique){
 			if(pos_x + mov_x >= univert.taille_envi || pos_x + mov_x < 0)

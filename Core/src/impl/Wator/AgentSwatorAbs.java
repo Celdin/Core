@@ -34,7 +34,7 @@ public abstract class AgentSwatorAbs extends AgentAbs {
 		return name + ":["+pos_x+","+pos_y+"]";
 	}
 
-	protected boolean placeLibre(EnvironmentWator environment){
+	protected boolean placeLibre(EnvironnementWator environment){
 		for (int y = 0; y < environment.taille_envi; y++) {
 			for (int x = 0; x < environment.taille_envi; x++) {
 				if(environment.grille[x][y] == null)
@@ -45,7 +45,7 @@ public abstract class AgentSwatorAbs extends AgentAbs {
 		return false;
 	}
 	
-	protected EnvironmentWator move(EnvironmentWator univert) {
+	protected EnvironnementWator move(EnvironnementWator univert) {
 		Random rand = new Random();
 		int choix;
 		while (true && univert.voisins(pos_x, pos_y).contains(null)){

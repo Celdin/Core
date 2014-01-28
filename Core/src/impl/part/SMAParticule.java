@@ -12,7 +12,7 @@ public class SMAParticule extends SMAAbs{
 
 
 	private Grille vue;
-	public SMAParticule(EnvironmentParticule environment, List<AgentAbs> agents) {
+	public SMAParticule(EnvironnementParticule environment, List<AgentAbs> agents) {
 		super(environment,agents);
 		
 		vue = new Grille(environment);
@@ -22,7 +22,7 @@ public class SMAParticule extends SMAAbs{
 		Random rand = new Random();
 		int x;
 		int y;
-		for(Integer i = 0;i < ((EnvironmentParticule)environment).nb_agent;i++){
+		for(Integer i = 0;i < ((EnvironnementParticule)environment).nb_agent;i++){
 			//on les place dans un coin au hazard (attention boucle infini si + d'Agent que de case)
 			do{
 			x = rand.nextInt(environment.taille_envi);

@@ -5,8 +5,8 @@ package abs;
 public abstract class AgentAbs {
 	public String name;
 	
-	protected Integer pos_x;
-	protected Integer pos_y;
+	public Integer pos_x;
+	public Integer pos_y;
 	
 	public AgentAbs(String nom,int x,int y){
 		this.name = nom;

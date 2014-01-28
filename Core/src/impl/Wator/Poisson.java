@@ -12,7 +12,7 @@ public class Poisson extends AgentSwatorAbs{
 
 	@Override
 	public EnvironnementAbs run(EnvironnementAbs env) {
-		EnvironmentWator univert = (EnvironmentWator)env;
+		EnvironnementWator univert = (EnvironnementWator)env;
 		ArrayList<AgentSwatorAbs> voisins = univert.voisins(pos_x, pos_y);
 		boolean depalcementPossible = voisins.contains(null);
 		cycleReproduction++;

@@ -2,7 +2,7 @@ package impl.part;
 
 import abs.EnvironnementAbs;
 
-public class EnvironmentParticule extends EnvironnementAbs{
+public class EnvironnementParticule extends EnvironnementAbs{
 	
 	public int nb_agent;
 	
@@ -14,7 +14,7 @@ public class EnvironmentParticule extends EnvironnementAbs{
 	 * @param taille_vus la taille de la fenetre
 	 * @param d temps d'attente entre deux cycle
 	 */
-	public EnvironmentParticule(int nb_agent, int taille_envi, int taille_case,
+	public EnvironnementParticule(int nb_agent, int taille_envi, int taille_case,
 			int taille_vus, int d) {
 		super(taille_envi, taille_case,taille_vus,d);
 		this.nb_agent = nb_agent;
@@ -29,7 +29,7 @@ public class EnvironmentParticule extends EnvironnementAbs{
 	 * @param d temps d'attente entre deux cycle
 	 * @param torique si l'evironement est torique ou non
 	 */
-	public EnvironmentParticule(int nb_agent, int taille_envi, int taille_case,
+	public EnvironnementParticule(int nb_agent, int taille_envi, int taille_case,
 			int taille_vus, int wait_time, Boolean torique) {
 		super(taille_envi, taille_case,taille_vus,wait_time,torique);
 		this.nb_agent = nb_agent;

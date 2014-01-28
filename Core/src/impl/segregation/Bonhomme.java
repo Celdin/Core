@@ -10,7 +10,7 @@ public class Bonhomme extends AgentHurbain{
 		super(nom,confort, x, y);
 	}
 
-	public Boolean estContent(EnvironmentSegregation univert){
+	public Boolean estContent(EnvironnementSegregation univert){
 		int etrange = 0;
 		ArrayList<AgentHurbain> bonhomes = univert.voisins(pos_x, pos_y);
 		for (AgentHurbain bonhomme : bonhomes)
@@ -21,7 +21,7 @@ public class Bonhomme extends AgentHurbain{
 	
 	@Override
 	public EnvironnementAbs run(EnvironnementAbs env) {
-		EnvironmentSegregation univert = (EnvironmentSegregation) env;
+		EnvironnementSegregation univert = (EnvironnementSegregation) env;
 		if(!estContent(univert ))
 			return move(univert);
 		return univert;

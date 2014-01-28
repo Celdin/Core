@@ -1,7 +1,7 @@
 package Vue.Wator;
 
 import impl.Wator.AgentSwatorAbs;
-import impl.Wator.EnvironmentWator;
+import impl.Wator.EnvironnementWator;
 
 import java.awt.Color;
 import java.awt.Toolkit;
@@ -19,7 +19,7 @@ public class Grille extends GrilleAbs {
 	 */
 	private static final long serialVersionUID = -8729021838428799085L;
 
-	public Grille (EnvironmentWator env){
+	public Grille (EnvironnementWator env){
 		super( env);
 		Border blackline = BorderFactory.createLineBorder(Color.black,1); 
 

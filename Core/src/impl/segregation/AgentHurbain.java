@@ -14,7 +14,7 @@ public abstract class AgentHurbain extends AgentAbs {
 		this.confort = confort;
 	}
 
-	protected EnvironmentSegregation move(EnvironmentSegregation univert) {
+	protected EnvironnementSegregation move(EnvironnementSegregation univert) {
 		Random rand = new Random();
 		int x,y;
 		do{
