@@ -68,7 +68,7 @@ public class Main {
 //		System.out.println("Start");
 //		sma.run(2000);
 //		System.out.println("Done");
-		sma = new SMAPacMan(new EnvironnementPacMan(2,30, 15, 100, 1000), new ArrayList<AgentAbs>());
+		sma = new SMAPacMan(new EnvironnementPacMan(5,30, 15, 100, 500), new ArrayList<AgentAbs>());
 		sma.addAgent();
 		sma.run(2000);
 	}
