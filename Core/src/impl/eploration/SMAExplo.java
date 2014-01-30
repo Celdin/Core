@@ -1,27 +1,20 @@
-package impl.pacMan;
+package impl.eploration;
 
-import impl.eploration.Mur;
-
-import java.awt.Point;
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-import Vue.PacMan.Grille;
+import Vue.Exploration.Grille;
 import abs.AgentAbs;
 import abs.EnvironnementAbs;
 import abs.SMAAbs;
 
-public class SMAPacMan extends SMAAbs {
+public class SMAExplo extends SMAAbs {
 
-	Point pacMan;
-	private Grille vue;
-
-	public SMAPacMan(EnvironnementPacMan environment, List<AgentAbs> agents) {
+	Grille vue = new Grille(environment);
+	public SMAExplo(EnvironnementExplo environment, List<AgentAbs> agents) {
 		super(environment, agents);
-		vue = new Grille(environment);
 	}
-
+	
 	private void lab(EnvironnementAbs environnement){
 
 		int x;
@@ -43,50 +36,49 @@ public class SMAPacMan extends SMAAbs {
 			
 		}
 	}
-	
+
 	@Override
 	public void addAgent() {
 		Random rand = new Random();
-		int x;
-		int y;
+		int x,y;
 		lab(environment);
 		do {
 			x = rand.nextInt(environment.taille_envi);
 			y = rand.nextInt(environment.taille_envi);
 		} while (environment.grille[x][y] != null);
-		pacMan = new Point(x, y);
-		environment.grille[x][y] = new PacMan("PacMan", x, y);
-		agents.add(environment.grille[x][y]);
-		for (int i = 0; i < ((EnvironnementPacMan) environment).nbAgent; i++) {
-			do {
-				x = rand.nextInt(environment.taille_envi);
-				y = rand.nextInt(environment.taille_envi);
-			} while (environment.grille[x][y] != null);
-			environment.grille[x][y] = new Gost("Gost" + i, x, y);
-			agents.add(environment.grille[x][y]);
+		for (int j = -1; j < 2; j++) {
+			for (int i = -1; i < 2; i++) {
+				if (x + i >= 0 && x + i < environment.taille_envi && y + j >= 0
+						&& y + j < environment.taille_envi && !(environment.grille[x + i][y + j] instanceof Mur)) {
+					environment.grille[x + i][y + j] = new Carte("", x + i, y+j);
+				}
+			}
 		}
-			
-		((EnvironnementPacMan) environment).goDijkstra(pacMan.x, pacMan.y);
+		environment.grille[x][y] = new Explorateur("Icare", x, y);
+		agents.add(environment.grille[x][y]);
+
 	}
 
+	private boolean containNull(EnvironnementAbs environment){
+		for(int i = 0;i< environment.taille_envi;i++){
+			for(int j = 0; j< environment.taille_envi;j++){
+				if(environment.grille[i][j] == null)
+					return true;
+			}
+		}
+		return false;
+	}
 	@Override
 	public void run(int n) throws InterruptedException {
-		while (((EnvironnementPacMan) environment).pacMan) {
+		while(containNull(environment)){
 			runOnce();
 		}
 	}
 
 	@Override
 	public void runOnce() throws InterruptedException {
-		Collections.shuffle(agents);
+		agents.get(0).run(environment);
 		vue.grille();
-		for (AgentAbs agent : agents) {
-			agent.run(environment);
-			if (agent.name.equals("PacMan")){
-				pacMan = new Point(agent.pos_x, agent.pos_y);
-			((EnvironnementPacMan) environment).goDijkstra(pacMan.x, pacMan.y);
-			}
-		}
 		Thread.sleep(environment.wait_time);
 	}
 

@@ -1,5 +1,7 @@
 package impl.pacMan;
 
+import impl.eploration.Mur;
+
 import java.awt.Point;
 import java.util.Stack;
 

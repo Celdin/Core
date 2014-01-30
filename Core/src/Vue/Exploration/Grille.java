@@ -1,5 +1,8 @@
-package Vue.PacMan;
+package Vue.Exploration;
 
+import impl.eploration.Carte;
+import impl.eploration.EnvironnementExplo;
+import impl.eploration.Explorateur;
 import impl.eploration.Mur;
 import impl.pacMan.EnvironnementPacMan;
 import impl.pacMan.Gost;
@@ -44,14 +47,9 @@ public class Grille extends GrilleAbs {
 		for(int y = 0; y<env.taille_envi;y++){
 			for(int x = 0; x<env.taille_envi;x++){
 				  
-			   if(env.grille[x][y]!=null && env.grille[x][y] instanceof PacMan){
+			   if(env.grille[x][y]!=null && env.grille[x][y] instanceof Explorateur){
 				   Graphics g = agent[x][y].getGraphics();
 				   g.setColor(Color.YELLOW);
-				   g.fillOval(0, 0, agent[x][y].getHeight(), agent[x][y].getWidth());
-				   agent[x][y].paint(g);
-			   }else if(env.grille[x][y]!=null && env.grille[x][y] instanceof Gost){
-				   Graphics g = agent[x][y].getGraphics();
-				   g.setColor(Color.RED);
 				   g.fillOval(0, 0, agent[x][y].getHeight(), agent[x][y].getWidth());
 				   agent[x][y].paint(g);
 			   }else if(env.grille[x][y]!=null && env.grille[x][y] instanceof Mur){
@@ -59,22 +57,14 @@ public class Grille extends GrilleAbs {
 				   g.setColor(Color.BLACK);
 				   g.fillRect(0, 0, agent[x][y].getHeight(), agent[x][y].getWidth());
 				   agent[x][y].paint(g);
-			   }else if(((EnvironnementPacMan)env).dijkstra[x][y] != -1){
+			   }else if(env.grille[x][y]!=null && env.grille[x][y] instanceof Carte){
 				   Graphics g = agent[x][y].getGraphics();
-				   int vert = ((int)((((EnvironnementPacMan)env).dijkstra[x][y])*255)/(env.taille_envi));
-				   if(vert<=255)
-					   g.setColor(new Color(0,vert,0));
-				   else
-					   if((vert%255)*10<=255)
-						   g.setColor(new Color((vert%255)*10,255,(vert%255)*10));
-					   else
-						   g.setColor(Color.WHITE);
-						   
+				   g.setColor(Color.WHITE);
 				   g.fillRect(0, 0, agent[x][y].getHeight(), agent[x][y].getWidth());
 				   agent[x][y].paint(g);
 			   }else{
 				   Graphics g = agent[x][y].getGraphics();
-				   g.setColor(Color.WHITE);
+				   g.setColor(Color.BLUE);
 				   g.fillRect(0, 0, agent[x][y].getHeight(), agent[x][y].getWidth());
 				   agent[x][y].paint(g);
 			   }

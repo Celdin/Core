@@ -1,8 +1,10 @@
 
 import impl.Wator.EnvironnementWator;
 import impl.Wator.SMAWator;
+import impl.eploration.EnvironnementExplo;
+import impl.eploration.Mur;
+import impl.eploration.SMAExplo;
 import impl.pacMan.EnvironnementPacMan;
-import impl.pacMan.Mur;
 import impl.pacMan.SMAPacMan;
 import impl.part.EnvironnementParticule;
 import impl.part.SMAParticule;
@@ -68,7 +70,8 @@ public class Main {
 //		System.out.println("Start");
 //		sma.run(2000);
 //		System.out.println("Done");
-		sma = new SMAPacMan(new EnvironnementPacMan(5,30, 15, 100, 500), new ArrayList<AgentAbs>());
+//		sma = new SMAPacMan(new EnvironnementPacMan(1,30, 15, 100, 500), new ArrayList<AgentAbs>());
+		sma = new SMAExplo(new EnvironnementExplo(30, 15, 100, 50), new ArrayList<AgentAbs>());
 		sma.addAgent();
 		sma.run(2000);
 	}
